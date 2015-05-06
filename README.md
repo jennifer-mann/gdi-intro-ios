@@ -22,12 +22,12 @@ For those unfamiliar with Git:
 Led by: Jeff O'Leary
 
 #### Class 1
-Taught by: Ellion Shcrock
-Introduction Xcode.  Further details to come.
+Taught by: Elliot Schrock
+Introduction of Xcode. Further details to come.
 
 #### Class 2
 Taught by: Vineet Sathyan
-Introduction to Programming Concepts (loops and constants), Basic UI and delegates. Further details to come.
+Introduction to programming concepts (loops and constants), Basic UI and delegates. Further details to come.
 
 #### Class 3
 Taught by: Jeff O'Leary
