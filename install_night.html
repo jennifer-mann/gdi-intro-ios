@@ -36,15 +36,41 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <!-- Opening slide -->
-        <section>
-          <h3>Welcome!</h3>
-          <p>Jeff, this is you buddy :) Setup Instructions for Install Night go here.</p>
+        <section data-background-iframe="https://developer.apple.com/xcode/downloads/">
+          <h2>Installing Xcode</h2>
+          <p>Head on over to: https://developer.apple.com/xcode/downloads/</p>
+          <img style="max-width:370px; min-width:330px;" src="https://devimages.apple.com.edgekey.net/xcode/images/downloads_2x.png">
         </section>
         <section>
-          <p>Second Slide</p>
+          <h2>CocoaPods</h2>
+          <ul>
+              <li>Manages library dependencies for Xcode projects</li>
+              <li>Dependencies are specified in a single text file called a Podfile</li>
+              <li>Resolves dependencies between libraries, fetches the required source code and links everything together in an Xcode workspace to build your project</li>
+          </ul>
+          <p>Reference: </p> <a href="https://guides.cocoapods.org/using/getting-started.html">https://guides.cocoapods.org/using/getting-started.html</a>
+
         </section>
         <section>
-          <p>Third Slide</p>
+          <h2>Installing CocoaPods</h2>
+          <ol>
+              <li>Open Terminal and enter:</li>
+              <pre><code>sudo gem install cocoapods</code></pre>
+          </ol>
+          <p>NOTE: CocoaPods is built with Ruby and it will be installable with the default Ruby available on OS X</p>
+        </section>
+        <section>
+          <h2>Using CocoaPods</h2>
+          <ol>
+              <li>Navigate to your project's folder, create a file called Podfile and open it in any editor</li>
+              <li>Add the following to your Podfile and save:
+                  <pre><code>source 'https://github.com/CocoaPods/Specs.git' <br>pod 'AFNetworking', '~> 1.0'
+                  </code></pre>   
+              </li>
+              <li>In Terminal, where the directory the Podfile is located, run the following: 
+                <pre><code>pod install</code></pre> 
+              </li>
+          </ol>
         </section>
       </div>
       <footer>
