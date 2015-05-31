@@ -39,7 +39,7 @@
         <section>
             <p>Third class</p>
             <br></br>
-            <h2 class="fragment">Navigation Options</h2>
+            <h2 class="fragment">Navigation</h2>
             <h2 class="fragment">Basic AutoLayout</h2>
           </section>
         <section>
@@ -73,17 +73,45 @@
           <img alt="The navigation stack" style="border-width:0" src="images/class3/nav_controllers_stack.jpg"/>
         </section>
         <section>
+          <h3 align="LEFT">Navigation Controller</h3>
+          <p>The views of a navigation controller</p>
+          <img alt="Views of a navigation controller" style="border-width:0" src="images/class3/NavigationViews_2x.png"/>
+        </section>
+        <section>
           <h3 align="LEFT">What does the navigation controller do?</h3>
           <ul>
             <li class="fragment">Respond to user actions by pushing new content view controllers onto the stack or popping content view controllers off of the stack</li>
-            <li class="fragment">Monitor changes to the Navgiation Stack</li>
+            <li class="fragment">Monitor changes to the Navigation Stack</li>
           </ul>
           <img class="fragment" alt="The navigation stack" style="border-width:0" src="images/class3/nav_controller_notifications.png"/>
         </section>
         <section>
-          <h3 align="LEFT">What does the navigation controller do?</h3>
+        <h4>Push a view controller</h4>
+        <img class="fragment" alt="The navigation stack" style="border-width:0" src="images/class3/navigation_interface_2x.png"/>
         </section>
         <section>
+          <h4>Push a view controller</h4>
+          <pre class="fragment">
+            <code contenteditable class ="objectivec"> UIViewController *viewControllerToPush = [UIViewController alloc] init];<br></br>[self.navigationController pushViewController:viewControllerToPush animated:YES];
+            </code>
+          </pre>
+          <h4 class="fragment">Pop back to the previous view controller or the root view controller</h4>
+          <pre class="fragment">
+            <code contenteditable class ="objectivec">[self.navigationController popViewControllerAnimated:YES];<br></br>or<br></br>[self.navigationController popToRootViewControllerAnimated:YES];
+            </code>
+          </pre>
+        </section>
+        <section>
+        <h4>Present a view controller</h4>
+        <pre class="fragment">
+            <code contenteditable class ="objectivec">UIViewController *viewControllerToPresent = [UIViewController alloc] init];<br></br>[self.navigationController presentViewController:viewControllerToPresent animated:YES completion:nil];
+            </code>
+          </pre>
+           <h4 class="fragment">Dismiss the presented view controller</h4>
+          <pre class="fragment">
+            <code contenteditable class ="objectivec">[previousViewController dismissViewControllerAnimated:YES completion:nil];
+            </code>
+          </pre>
         </section>
         <section>
         </section>
