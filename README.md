@@ -22,17 +22,13 @@ For those unfamiliar with Git:
 Led by: Jeff O'Leary
 
 #### Class 1
-Taught by: Elliot Schrock
-Introduction of Xcode. Further details to come.
+Led by: Elliot Schrock
 
 #### Class 2
-Taught by: Vineet Sathyan
-Introduction to programming concepts (loops and constants), Basic UI and delegates. Further details to come.
+Led by: Vineet Sathyan
 
 #### Class 3
-Taught by: Jeff O'Leary
-Navigation Options and Basic AutoLayout. Further details to come.
+Led by: Jeff O'Leary
 
 #### Class 4
-Led by: Jeff, Vineet and Elliot
-Animation and APIs. Further details to come.
+Led by: TBD

@@ -68,7 +68,8 @@ body {
 		font-size: 30px;
 	}
 }
-.reveal footer {
+
+.reveal footer{
     position: fixed;
     height: 40px;
     width: 100%;
@@ -77,11 +78,7 @@ body {
     z-index: 10;
     font-size: 35%;
     text-align:right;
-}
-
-.reveal footer .logo {
-    height: 40px;
-  	background-image: url(../css/images/pink-logo.png);
+    background-image: url(../css/images/pink-logo.png);
     background-repeat: no-repeat;
     background-size: auto 100%;
 }
@@ -92,6 +89,7 @@ body {
 .reveal footer .copyright a img{
     vertical-align: middle;
 }
+
 /*********************************************
 * OVERRIDES
 **********************************************/
