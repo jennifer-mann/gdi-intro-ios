@@ -35,16 +35,22 @@
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <!-- ************* -->
-        <!-- Install Night -->
-        <!-- ************* -->
+
         <section>
           <img src = "images/gdi-boston-logo.png" style="width: 30%; height:30%;">
           <h3>Introduction to iOS</h3>
-<!--           <p>Slides available for download at <a href="https://github.com/gdiboston/gdi-intro-ios" target="_blank">https://github.com/gdiboston/gdi-intro-ios</a></p> -->
+          <a href="#/install-night">Install Night</a><br>
+          <a href="#/class-1">First Class</a><br>
+          <a href="#/class-2">Second Class</a><br>
+          <a href="#/class-3">Third Class</a><br>
+          <a href="#/class-4">Fourth Class</a>
         </section>
 
-        <section>
+        <!-- ************* -->
+        <!-- Install Night -->
+        <!-- ************* -->
+
+        <section id="install-night">
           <br></br>
           <br></br>
           <h1>Install Night</h1>
@@ -101,33 +107,247 @@
         <!-- First Class  -->
         <!-- ************ -->
 
-        <!-- <section> -->
-          <!-- <h2>First Class: Elliot</h2> -->
-        <!-- </section> -->
+        <section id="class-1">
+            <h2>Introduction to iOS App Development</h2>
+            <h4>First Class</h4>
+            <p>Elliot Schrock</em></p>
+          </section>
+        <section>
+          <h4>Agenda</h4>
+            <p class="fragment">How this course will be taught</p>
+            <p class="fragment">Motivation</p>
+            <p class="fragment">Introduction to programming fundamentals</p>
+            <p class="fragment">Introduction to MVC</p>
+            <p class="fragment">Tour of Xcode</p>
+            <p class="fragment">Overview of a real app</p>
+        </section>
+        <section>
+          <h4>This course</h4>
+            <p class="fragment">1 class = 1 instructor</p>
+            <p class="fragment">Misunderstanding = our fault</p>
+            <p class="fragment">Please please PLEASE ask questions</p>
+            <p class="fragment">gdi.ios.anonymous.question@gmail.com<br/>@GDI.Question!</p>
+            <p class="fragment">My email: elliot.schrock@gmail.com</p>
+        </section>
+        <section>
+          <h4>Why should I care about programming?</h4>
+            <p class="fragment">It's magic.</p>
+            <aside class="notes">
+              It is the closest us muggles have to being wizards
+            </aside>
+            <p class="fragment">DON'T YOU WANT TO BE A WIZARD?</p>
+            <aside class="notes">
+              Think about mobile: spells for finding things, bringing them to you, turning on/off lights, info from one person to another
+            </aside>
+
+        </section>
+        <section>
+          <p>Like anything in the wizarding world, it takes precision</p>
+          <iframe width="420" height="315" src="https://www.youtube.com/embed/fx2zLgdkJpk" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section>
+          <h4>List of Commands</h4>
+          <p class="fragment">Each command is like a spell</p>
+
+            <aside class="notes">
+              it has to be right or you'll stab an eye out
+            </aside>
+          <p class="fragment">Each line is a command:</p>
+          <pre class="fragment"><code data-trim>[someObject doSomething];
+[anotherObject doSomethingElse];
+someObject.someProperty = anotherProperty;</code></pre>
+          <aside class="notes">
+            This is generally called 'procedural programming,' but we want something a little different called...
+          </aside>
+        </section>
+        <section>
+          <h4>Object Oriented Programming</h4>
+          <p class="fragment">Create 'objects' that do things</p>
+          <aside class="notes">
+            "Create" (write code describing)
+          </aside>
+          <p class="fragment">In OOP, (almost) everything is an object</p>
+          <aside class="notes">
+            "OOP" specifically Obj-C. In fact, how many have heard of C? "Objective" C is an object oriented version of C (kind of)
+          </aside>
+          <p class="fragment">Description of:</p>
+          <ul>
+              <li class="fragment">What the object can do</li>
+              <li class="fragment">What other objects it owns</li>
+          </ul>
+          <p class="fragment">Write this description in its own file (kind of)</p>
+        </section>
+        <section>
+          <h4>Examples</h4>
+          <p class="fragment">Dog</p>
+          <aside class="notes">
+            Has: collar, tail, tongue, legs, nose, ears, Can: walk, run, pant, bark
+          </aside>
+          <p class="fragment">Pen</p>
+          <aside class="notes">
+            Has: a cap, a grip, a tip, ink Can: make a mark
+          </aside>
+          <p class="fragment">Arm</p>
+          <aside class="notes">
+            Ask the class for examples of properties and methods
+          </aside>
+        </section>
+        <section>
+          <h4>Syntax I</h4>
+          <p class="fragment">Access a property using a 'dot'</p>
+          <pre class="fragment"><code>    arm.hand;<br>    arm.elbow;</code></pre>
+          <p class="fragment">Can even chain them together:</p>
+          <pre class="fragment"><code>    arm.hand.pinkieFinger;</code></pre>
+        </section>
+        <section>
+          <h4>Functions</h4>
+          <p>Functions = actions</p>
+          <p class="fragment">Functions can 'return' things:</p>
+          <pre class="fragment"><code>- (Pen *)giveMeYourPen<br>{<br>    return myPen;<br>}</code></pre>
+          <p class="fragment">Functions can accept things (called 'arguments'):</p>
+          <pre class="fragment"><code>
+- (void)takeThisPen:(Pen *)thisPen
+{
+    myPen = thisPen;
+}</code></pre>
+          <aside class="notes">
+            '=' means call the thing on the right by what's on the left
+            'Pen' is the type of object
+            'thisPen' is the name of the object
+            You could name it something other than 'thisPen'. 'Mac'? Gwyneth Paltrow: child named 'Apple.' You can do that, it's just weird
+            (please name things logically!)
+          </aside>
+          <p class="fragment">Can do both:
+          </p><pre class="fragment"><code>
+- (Pen *)penWithInkCatridge:(InkCartridge *)cartridge
+{
+    myPen.inkCartridge = cartridge;
+    return myPen;
+}</code></pre>
+        </section>
+        <section>
+          <h4>Arm.h</h4>
+          <aside class="notes">
+            h stands for 'header'
+            Lots here you aren't supposed to understand, just don't want to show you something wrong.
+            Just incantations
+          </aside>
+          <pre class="fragment"><code>
+#import &lt;Foundation/Foundation.h&gt;
+#import "Hand.h"
+
+@interface Arm : NSObject
+@property (nonatomic, strong) Hand *hand;
+
+- (void)extend;
+- (void)retract;
+@end
+          </code></pre>
+        </section>
+        <section>
+          <h4>Hand.h</h4>
+          <pre class="fragment"><code>
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface Hand : NSObject
+@property (nonatomic, strong) Finger *indexFinger;
+@property (nonatomic, strong) Finger *middleFinger;
+@property (nonatomic, strong) Finger *ringFinger;
+@property (nonatomic, strong) Finger *pinkieFinger;
+
+- (void)open;
+- (void)close;
+@end
+          </code></pre>
+        </section>
+        <section>
+          <h4>Syntax II</h4>
+          <p class="fragment">Tell an object to do something with brackets:</p>
+          <pre class="fragment"><code>    [hand open];<br>    [hand close];</code></pre>
+          <p class="fragment">You can chain these too:</p>
+          <pre class="fragment"><code>    [[student giveMeYourPen] makeMark];</code></pre>
+          <p class="fragment">Or combine them with properties:</p>
+          <pre class="fragment"><code>    [arm.hand.pinkieFinger wiggle];</code></pre>
+        </section>
+        <section>
+          <h4>Exercise</h4>
+          <pre class="fragment"><code>
+#import &lt;Foundation/Foundation.h&gt;
+#import "Hand.h"
+
+@interface Arm : NSObject
+@property (nonatomic, strong) Hand *hand;
+
+- (void)extend;
+- (void)retract;
+@end
+          </code></pre>
+          <pre class="fragment"><code>
+#import &lt;Foundation/Foundation.h&gt;
+#import "Finger.h"
+
+@interface Hand : NSObject
+@property (nonatomic, strong) Finger *indexFinger;
+@property (nonatomic, strong) Finger *middleFinger;
+@property (nonatomic, strong) Finger *ringFinger;
+@property (nonatomic, strong) Finger *pinkieFinger;
+
+- (void)open;
+- (void)close;
+@end
+          </code></pre>
+        </section>
+        <section>
+          <h4>Exercise Function</h4>
+          <pre><code>
+- (void)pickUpPen:(Arm *)arm
+{
+
+}
+          </code></pre>
+        </section>
+        <section>
+          <h4>A Solution</h4>
+          <pre class="fragment"><code>
+- (void)pickUpPen:(Arm *)arm
+{
+    [arm.hand open];
+    [arm extend];
+    [arm.hand close];
+    [arm retract];
+}
+          </code></pre>
+        </section>
+        <section>
+          <h4></h4>
+        </section>
+        <section>
+          <h1>Thank you!</h1>
+        </section>
 
         <!-- ************ -->
         <!-- Second Class -->
         <!-- ************ -->
 
-        <!-- <section> -->
-          <!-- <h2>Second Class: Vineet</h2> -->
-        <!-- </section> -->
+        <section id="class-2">
+          <h2>Second Class: Vineet</h2>
+        </section>
 
         <!-- ************ -->
         <!-- Third Class  -->
         <!-- ************ -->
 
-        <!-- <section> -->
-          <!-- <h2>Third Class: Jeff</h2> -->
-        <!-- </section> -->
+        <section id="class-3">
+          <h2>Third Class: Jeff</h2>
+        </section>
 
         <!-- ************ -->
         <!-- Final Class  -->
         <!-- ************ -->
 
-        <!-- <section> -->
-          <!-- <h2>Final Class: TBD</h2> -->
-        <!-- </section> -->
+        <section id="class-4">
+          <h2>Final Class: TBD</h2>
+        </section>
       </div>
 
       <footer>
