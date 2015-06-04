@@ -41,13 +41,27 @@
         <section>
           <img src = "images/gdi-boston-logo.png" style="width: 30%; height:30%;">
           <h3>Introduction to iOS</h3>
-          <p>Slides available for download at <a href="https://github.com/gdiboston/gdi-intro-ios" target="_blank">https://github.com/gdiboston/gdi-intro-ios</a></p>
+<!--           <p>Slides available for download at <a href="https://github.com/gdiboston/gdi-intro-ios" target="_blank">https://github.com/gdiboston/gdi-intro-ios</a></p> -->
+        </section>
+
+        <section>
+          <br></br>
+          <br></br>
+          <h1>Install Night</h1>
         </section>
 
         <section data-background-iframe="https://developer.apple.com/xcode/downloads/">
-          <h2>Installing Xcode</h2>
+          <h2>Install Xcode</h2>
           <p>Head on over to: https://developer.apple.com/xcode/downloads/</p>
           <img style="max-width:370px; min-width:330px;" src="https://devimages.apple.com.edgekey.net/xcode/images/downloads_2x.png">
+        </section>
+
+        <section>
+          <p>To ensure Xcode was installed properly, open your terminal and run</p>
+          <pre><code>xcode-select -p</code></pre>
+          <br></br>
+          <p>You should see</p>
+          <pre><code>/Applications/Xcode.app/Contents/Developer</code></pre>
         </section>
 
         <section>
@@ -70,16 +84,17 @@
         </section>
 
         <section>
-          <h2>Using CocoaPods</h2>
+          <h2>Let's run a sample app</h2>
+          <p>Download the sample app </p><a href="http://bit.ly/gdi-sample-ios-app">http://bit.ly/gdi-sample-ios-app</a>
+          <br></br>
           <ol>
-              <li>Navigate to your project's folder, create a file called Podfile and open it in any editor</li>
-              <li>Add the following to your Podfile and save:
-                  <pre><code>source 'https://github.com/CocoaPods/Specs.git' <br>pod 'AFNetworking', '~> 1.0'
-                  </code></pre>
-              </li>
-              <li>In Terminal, where the directory the Podfile is located, run the following:
-                <pre><code>pod install</code></pre>
-              </li>
+            <li>Navigate to your project's folder</li>
+            <li>In Terminal, where the directory the Podfile is located, run the following:
+            <pre><code>pod install</code></pre>
+            </li>
+            <li>Now open the xcworkspace
+            <pre><code>open Sample\ iOS\ Project.xcworkspace/</code></pre>
+            </li>
           </ol>
         </section>
         <!-- ************ -->
