@@ -762,9 +762,204 @@ someObject.someProperty = anotherProperty;</code></pre>
         <!-- ************ -->
 
         <section id="class-3">
-          <h2>Third Class: Jeff</h2>
+          <h2>Third Class</h2>
+          <p>Jeff O'Leary</p>
         </section>
+        <section>
+          <h4>Agenda</h4>
+          <p class="fragment">Navigation</p>
+          <p class="fragment">Break time!</p>
+          <p class="fragment">Auto Layout</p>
+        </section>
+        <section>
+          <h4>Goals</h4>          
+          <p class="fragment">What is a navigation stack</p>
+          <p class="fragment">Who coordinates and controls navigation</p>
+          <p class="fragment">How to navigate throughout an app</p>
+          <p class="fragment">What is Auto Layout</p>
+          <p class="fragment">What is the benefit of Auto Layout</p>
+          <p class="fragment">How do I use Auto Layout</p>
+        </section>
+          <section>
+          <h4>Goals</h4>
+          <p class="fragment">If these goals aren't met, I'm doing something wrong.  Please help me be a better teacher, ask any and all questions!</p>
+          <br/>
+          <p class="fragment">Any follow up questions or clarification, feel to use the anonymous email provided - gdi.ios.anonymous.question@gmail.com<br/>@GDI.Question!</p>
+          <br/>
+          <p class="fragment">or email me directly: joleary1987@gmail.com</p>
+        </section>
+        <section>
+          <h2>Navigation</h2>
+            <p class="fragment">Navigation Interface</p>
+            <p class="fragment">UINavigationController</p>
+            <p class="fragment">UITabBarController</p>
+        </section>
+          <section>
+              <br/>
+              <br/>
+              <br/>
+              <h2>Navigation Interface</h2>
+          </section>
+        <section>
+          <p class="fragment">The views of a navigation interface</p>
+          <img class="fragment" src = "images/NavigationViews_2x.png" style="width: 100%; height:100%;">
+            <aside class="notes">
+                UIWindow class (window in the image) provides an area for displaying an app's views and to distribute events to the views.
+                Usually, an app has only one window and the window contains a root view controller which is the first view controller in the navigation stack.
+                The navigation view here is the part of the UINavigationController and can send events to the navigation controller.
+                The tab bar view is part of the UITabBarController and can send events to the tab bar controller.
+                ^^All provided by iOS and customizable, however, the positioning of where they are layered should not be altered.
+                Lastly, there are the views you have created and can navigate to/from.
+            </aside>
+        </section>
+          <section>
+              <br/>
+              <br/>
+              <br/>
+              <h2>UINavigationController</h2>
+          </section>
+          <section>
+              <p>UINavigationController</p>
+              <img class="fragment" src = "images/nav_controllers_objects.jpg" style="width: 100%; height:100%;">
+              <aside class="notes">
+                  UINavigationController creates and is responsible for the navigation bar and tool bar.  The navigation controller sets itself as the navigation bar's delegate so it can receive messages such as, "back button touched."
+                  The navigation controller manages the navigation stack, which is a "last-in, first-out" collection of custom view controller objects.  The first item added to the stack becomes the <i>root view controller</i> which never gets 'popped' off the stack.
+                  The navigation controller’s primary responsibility is to respond to user actions by pushing new content view controllers onto the stack or popping content view controllers off of the stack.
+                  Each content view controller in the stack configures and pushes the content view controller that is on top of it in the stack.
+                  The navigation controller provides a back button on the navigation bar that pops the topmost view controller automatically when the user taps it.
+              </aside>
+          </section>
+          <section>
+              <p>Creating a navigation interface in code:</p>
+                <pre class="fragment"><code>
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{
+    UIViewController *myViewController = [[MyViewController alloc] init];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:myViewController];
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    window.rootViewController = navigationController;
+    [window makeKeyAndVisible];
+}
 
+                </code></pre>
+          </section>
+          <section>
+              <p class="fragment">User selects an item from a list and expects a detailed view of that item</p>
+              <pre class="fragment"><code>
+UIViewController *itemDetailViewController = [UIViewController alloc] init];
+[self.navigationController pushViewController:itemDetailViewController animated:YES];
+              </code></pre>
+              <br/>
+              <p class="fragment">User wants to return to the previous screen</p>
+              <p class="fragment"><i>(If the user used the back button, the navigation controller would do that for us)</i></p>
+              <pre class="fragment"><code>
+[self.navigationController popViewControllerAnimated:YES];
+              </code></pre>
+          </section>
+          <section>
+              <p>Back up farther than the last screen</p>
+              <p class="fragment">Pop every view in the stack until you reach the root view controller</p>
+              <pre class="fragment"><code>
+[self.navigationController popToRootViewControllerAnimated:YES];
+              </code></pre>
+              <p class="fragment">Remove a number of view controllers at a time</p>
+              <pre class="fragment"><code>
+[self.navigationController popToViewController:viewControllerPositioned4thIntheStack animated:YES];
+              </code></pre>
+              <aside class="notes">
+                  First example, removes all but the root view controller from the navigation stack.
+                  Second example, use to back up more than one level at a time, use the popToViewController:animated: method. You might use this method in situations where you use a navigation controller to manage the editing of custom content (rather than presenting content modally). If the user decides to cancel the operation after you have pushed multiple edit screens, you can use this method to remove all of the editing screens at once, rather than one at a time.
+                  The view controller that you want to be at the top of the stack. This view controller must currently be on the navigation stack.
+              </aside>
+          </section>
+          <section>
+              <p>Using UIViewController methods to display new screens</p>
+              <p class="fragment">Display a new view controller over the current view controller's content</p>
+              <pre class="fragment"><code>
+[self presentViewController:viewControllerToDisplay animated:YES completion:nil];
+              </code></pre>
+              <p class="fragment">Then dismiss it</p>
+              <pre class="fragment"><code>
+[self dismissViewControllerAnimated:YES completion:nil];
+              </code></pre>
+          </section>
+        <section>
+          <p>Let's try some out some use cases</p>
+          <ul class="fragment">
+          </ul>
+        </section>
+          <section>
+              <br/>
+              <br/>
+              <br/>
+              <h2>UITabBarController</h2>
+          </section>
+          <section>
+              <p class="fragment">Display a new view controller over the current view controller's content</p>
+              <img class="fragment" src = "images/tabbar_controllerviews.jpg" style="width: 100%; height:100%;">
+              <aside class="notes">
+                  Each tab of a tab bar controller interface is associated with a custom view controller. When the user selects a specific tab, the tab bar controller displays the root view of the corresponding view controller, replacing any previous views.
+                  You should never access the tab bar view of a tab bar controller directly. To configure the tabs of a tab bar controller, you assign the view controllers that provide the root view for each tab to the viewControllers property.
+                  The order in which you specify the view controllers determines the order in which they appear in the tab bar. When setting this property, you should also assign a value to the selectedViewController property to indicate which view controller is selected initially. (You can also select view controllers by array index using the selectedIndex property.)
+                  Tab bar items are configured through their corresponding view controller. To associate a tab bar item with a view controller, create a new instance of the UITabBarItem class, configure it appropriately for the view controller, and assign it to the view controller’s tabBarItem property. If you do not provide a custom tab bar item for your view controller, the view controller creates a default item containing no image and the text from the view controller’s title property.
+                  If you assign a value to this view controller’s restorationIdentifier property, it preserves a reference to the view controller in the selected tab. At restore time, it uses the reference to select the tab with the same view controller.
+              </aside>
+          </section>
+          <section>
+              <p>Creating and setting the view controllers for each tab</p>
+              <pre class="fragment"><code width=3000>
+UIViewController *firstTabViewController = [[UIViewController alloc] init];
+UIViewController *secondTabViewController = [[UIViewController alloc] init];
+UIViewController *thirdTabViewController = [[UIViewController alloc] init];
+UIViewController *fourthTabViewController = [[UIViewController alloc] init];
+
+UITabBarController *tabBarController = [[UITabBarController alloc] init];
+tabBarController.viewControllers = @[firstTabViewController, secondTabViewController, thirdTabViewController, fourthTabViewController];
+              </code></pre>
+          </section>
+          <section>
+              <p>Tab bars have very limited space on the screen...</p>
+              <p class="fragment">UITabBarController provides a "more" button solution</p>
+              <img class="fragment" src = "images/moreButtonTabBar.png" style="width: 40%; height:40%;">
+              <aside class="notes">
+                  The tab bar has limited space for displaying your custom items. If you add six or more custom view controllers to a tab bar controller, the tab bar controller displays only the first four items plus the standard More item on the tab bar. Tapping the More item brings up a standard interface for selecting the remaining items.
+              </aside>
+          </section>
+          <section>
+              <h1>Let's take a break</h1>
+              <img class="fragment" src = "images/panda.jpg" style="width: 100%; height:100%;">
+          </section>
+          <section>
+              <h2>Auto Layout</h2>
+          </section>
+          <section>
+              <p>What is it?</p>
+              <p class="fragment">A system to create mathematical relationships between items within the view, with view itself.  It is very similar to responsive web</p>
+          </section>
+          <section>
+              <p>How does it help me?</p>
+              <p class="fragment">Items within the view resize and reposition based on our predetermined constraints.  Auto Layout removes the need to code for every current and future screen size.</p>
+          </section>
+          <section>
+              <p>Adding layout constraints using Interface Builder</p>
+              <p class="fragment">Control-Drag</p>
+                  <img class="fragment" src = "images/xibautolayoutimage.png" style="width: 100%; height:100%;">
+              <aside class="notes">
+                  View constraints include height, width, leading space, trailing space, top space and bottom space.  These constraints can be applied to single items, multiple items either.  Constraints can be in reference to other child views or the superview itself.
+              </aside>
+          </section>
+          <section>
+              <p>Adding layout constraints using Interface Builder continued...</p>
+              <img class="fragment" src = "images/otheroptionsxib.png" style="width: 100%; height:100%;">
+              <aside class="notes">
+                  Auto Layout also includes Horizontal Center and Vertical Center in the item's container.  Multiple items can be selected and have equal widths or heights applied to all so each item's width or height is the same.
+              </aside>
+          </section>
+          <section>
+              <p>Referencing constraints that were set in Interface Builder in code</p>
+              <p class="fragment">While in Assistant Editor mode, having the XIB file and class file open</p>
+              <img class="fragment" src = "images/fullscreenxibandclassfile.png" style="width: 100%; height:100%;">
+          </section>
         <!-- ************ -->
         <!-- Final Class  -->
         <!-- ************ -->
