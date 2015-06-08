@@ -117,9 +117,8 @@
             <p class="fragment">How this course will be taught</p>
             <p class="fragment">Motivation</p>
             <p class="fragment">Introduction to programming fundamentals</p>
-            <p class="fragment">Introduction to MVC</p>
             <p class="fragment">Tour of Xcode</p>
-            <p class="fragment">Overview of a real app</p>
+            <p class="fragment">Introduction to MVC</p>
         </section>
         <section>
           <h4>This course</h4>
@@ -128,14 +127,16 @@
             <p class="fragment">Please please PLEASE ask questions</p>
             <p class="fragment">gdi.ios.anonymous.question@gmail.com<br/>@GDI.Question!</p>
             <p class="fragment">My email: elliot.schrock@gmail.com</p>
+            <aside class="notes">
+              Let students write it down!
+            </aside>
         </section>
         <section>
           <h4>Why should I care about programming?</h4>
-            <p class="fragment">It's magic.</p>
+            <p class="fragment">It's MAGIC!</p>
             <aside class="notes">
               It is the closest us muggles have to being wizards
             </aside>
-            <p class="fragment">DON'T YOU WANT TO BE A WIZARD?</p>
             <aside class="notes">
               Think about mobile: spells for finding things, bringing them to you, turning on/off lights, info from one person to another
             </aside>
@@ -152,16 +153,16 @@
             <aside class="notes">
               it has to be right or you'll stab an eye out
             </aside>
-          <p class="fragment">Each line is a command:</p>
+          <p class="fragment">Generally one command per line:</p>
           <pre class="fragment"><code data-trim>[someObject doSomething];
 [anotherObject doSomethingElse];
 someObject.someProperty = anotherProperty;</code></pre>
           <aside class="notes">
-            This is generally called 'procedural programming,' but we want something a little different called...
+            Build up these commands into 'objects'
           </aside>
         </section>
         <section>
-          <h4>Object Oriented Programming</h4>
+          <h4>Object Oriented Programming (OOP)</h4>
           <p class="fragment">Create 'objects' that do things</p>
           <aside class="notes">
             "Create" (write code describing)
@@ -189,11 +190,20 @@ someObject.someProperty = anotherProperty;</code></pre>
           </aside>
           <p class="fragment">Arm</p>
           <aside class="notes">
-            Ask the class for examples of properties and methods
+            Ask the class for examples of properties and functions
           </aside>
         </section>
         <section>
-          <h4>Syntax I</h4>
+          <h4>Objects</h4>
+          <p class="fragment">Type of object = Class</p>
+          <p class="fragment">The object itself = instance</p>
+          <aside class="notes">
+            Give example: Chair class is a description of all chairs; this chair right here is an 'instance' of that class
+            Uppercase vs lowercase
+          </aside>
+        </section>
+        <section>
+          <h4>Properties</h4>
           <p class="fragment">Access a property using a 'dot'</p>
           <pre class="fragment"><code>    arm.hand;<br>    arm.elbow;</code></pre>
           <p class="fragment">Can even chain them together:</p>
@@ -202,86 +212,54 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section>
           <h4>Functions</h4>
           <p>Functions = actions</p>
-          <p class="fragment">Functions can 'return' things:</p>
-          <pre class="fragment"><code>- (Pen *)giveMeYourPen<br>{<br>    return myPen;<br>}</code></pre>
-          <p class="fragment">Functions can accept things (called 'arguments'):</p>
-          <pre class="fragment"><code>
-- (void)takeThisPen:(Pen *)thisPen
+          <p class="fragment">Tell an object to do something with brackets:</p>
+          <pre class="fragment"><code>    [hand open];<br>    [hand close];</code></pre>
+          <p class="fragment">They can be given some number of things (called 'arguments'):</p>
+          <pre class="fragment"><code>    [student takeThisPen:pen];</code></pre>
+          <pre class="fragment"><code>    [student putThisInkCartridge:cartridge intoThisPen:pen];</code></pre>
+          <p class="fragment">Or they can be combined with properties:</p>
+          <pre class="fragment"><code>    [arm.hand.pinkieFinger wiggle];</code></pre>
+        </section>
+        <section>
+          <h4>Defining a function</h4>
+          <pre class="fragment"><code>- (void)open<br>{<br>    //do something<br>}</code></pre>
+          <p class="fragment">Functions with arguments:</p>
+          <pre class="fragment"><code>- (void)takeThisPen:(Pen *)thisPen
 {
     myPen = thisPen;
 }</code></pre>
-          <aside class="notes">
-            '=' means call the thing on the right by what's on the left
-            'Pen' is the type of object
-            'thisPen' is the name of the object
-            You could name it something other than 'thisPen'. 'Mac'? Gwyneth Paltrow: child named 'Apple.' You can do that, it's just weird
-            (please name things logically!)
-          </aside>
-          <p class="fragment">Can do both:
-          </p><pre class="fragment"><code>
-- (Pen *)penWithInkCatridge:(InkCartridge *)cartridge
+          <pre class="fragment"><code>- (void)putInkCartridge:(InkCartridge *)cartridge intoPen:(Pen *)pen
 {
-    myPen.inkCartridge = cartridge;
-    return myPen;
+    pen.cartridge = cartridge;
 }</code></pre>
+          <p class="fragment">Functions can 'return' things:</p>
+          <pre class="fragment"><code>- (Pen *)giveMeYourPen<br>{<br>    return myPen;<br>}</code></pre>
+          <aside class="notes">
+            '=' means make the thing on the left equal to what's on the right.
+            'Pen' is the type of object.
+            'thisPen' is the name of the object.
+            You could name it something other than 'thisPen'. 'Mac'? Example: Gwyneth Paltrow's child is named 'Apple' ...You can do that, it's just weird
+            (please name things logically!)
+            We'll get into this more later
+          </aside>
         </section>
         <section>
-          <h4>Arm.h</h4>
+          <h4>Putting it all together</h4>
+          <pre class="fragment"><font color="white">-</font> <font color="green">(Pen *)</font><font color="yellow">pen:</font><font color="red">(Pen *)pen</font> <font color="yellow">withInkCatridge:</font><font color="red">(InkCartridge *)cartridge</font></pre>
+          <pre class="fragment">{
+    [<font color="red">pen</font> <font color="blue">open</font>];
+    <font color="red">pen</font>.<font color="pink">inkCartridge</font> = <font color="red">cartridge</font>;
+    [<font color="red">pen</font> <font color="blue">close</font>];
+    return <font color="green">pen</font>;
+}</pre>
+        </section>
+        <section>
+          <h4>Hand.h</h4>
           <aside class="notes">
             h stands for 'header'
             Lots here you aren't supposed to understand, just don't want to show you something wrong.
             Just incantations
           </aside>
-          <pre class="fragment"><code>
-#import &lt;Foundation/Foundation.h&gt;
-#import "Hand.h"
-
-@interface Arm : NSObject
-@property (nonatomic, strong) Hand *hand;
-
-- (void)extend;
-- (void)retract;
-@end
-          </code></pre>
-        </section>
-        <section>
-          <h4>Hand.h</h4>
-          <pre class="fragment"><code>
-#import &lt;Foundation/Foundation.h&gt;
-
-@interface Hand : NSObject
-@property (nonatomic, strong) Finger *indexFinger;
-@property (nonatomic, strong) Finger *middleFinger;
-@property (nonatomic, strong) Finger *ringFinger;
-@property (nonatomic, strong) Finger *pinkieFinger;
-
-- (void)open;
-- (void)close;
-@end
-          </code></pre>
-        </section>
-        <section>
-          <h4>Syntax II</h4>
-          <p class="fragment">Tell an object to do something with brackets:</p>
-          <pre class="fragment"><code>    [hand open];<br>    [hand close];</code></pre>
-          <p class="fragment">You can chain these too:</p>
-          <pre class="fragment"><code>    [[student giveMeYourPen] makeMark];</code></pre>
-          <p class="fragment">Or combine them with properties:</p>
-          <pre class="fragment"><code>    [arm.hand.pinkieFinger wiggle];</code></pre>
-        </section>
-        <section>
-          <h4>Exercise</h4>
-          <pre class="fragment"><code>
-#import &lt;Foundation/Foundation.h&gt;
-#import "Hand.h"
-
-@interface Arm : NSObject
-@property (nonatomic, strong) Hand *hand;
-
-- (void)extend;
-- (void)retract;
-@end
-          </code></pre>
           <pre class="fragment"><code>
 #import &lt;Foundation/Foundation.h&gt;
 #import "Finger.h"
@@ -296,6 +274,56 @@ someObject.someProperty = anotherProperty;</code></pre>
 - (void)close;
 @end
           </code></pre>
+          <aside class="notes">
+            Go through each line again
+          </aside>
+        </section>
+        <section>
+          <h4>Arm.h</h4>
+          <pre><code>
+#import &lt;Foundation/Foundation.h&gt;
+#import "Hand.h"
+
+@interface Arm : NSObject
+@property (nonatomic, strong) Hand *hand;
+
+- (void)extend;
+- (void)retract;
+@end
+          </code></pre>
+          <aside class="notes">
+            Go through each line and explain: 
+            @interface = how to "interface" with Arm objects
+            property (incantation, incantation) an object of class Hand, named hand
+            two functions that return nothing and take no arguments
+          </aside>
+        </section>
+        <section>
+          <h4>Exercise</h4>
+          <pre><code>#import &lt;Foundation/Foundation.h&gt;
+#import "Hand.h"
+
+@interface Arm : NSObject
+@property (nonatomic, strong) Hand *hand;
+
+- (void)extend;
+- (void)retract;
+@end</code></pre>
+          <pre><code>#import &lt;Foundation/Foundation.h&gt;
+#import "Finger.h"
+
+@interface Hand : NSObject
+@property (nonatomic, strong) Finger *indexFinger;
+@property (nonatomic, strong) Finger *middleFinger;
+@property (nonatomic, strong) Finger *ringFinger;
+@property (nonatomic, strong) Finger *pinkieFinger;
+
+- (void)open;
+- (void)close;
+@end</code></pre>
+          <aside class="notes">
+            Here are the .h files for both classes. Walk through creating them in Xcode. Now let's implement the following together... (next slide)
+          </aside>
         </section>
         <section>
           <h4>Exercise Function</h4>
@@ -305,6 +333,9 @@ someObject.someProperty = anotherProperty;</code></pre>
 
 }
           </code></pre>
+          <aside class="notes">
+            Demonstrate this function physically, the walk through writing it in Xcode.
+          </aside>
         </section>
         <section>
           <h4>A Solution</h4>
@@ -319,7 +350,227 @@ someObject.someProperty = anotherProperty;</code></pre>
           </code></pre>
         </section>
         <section>
-          <h4></h4>
+          <h4>Exercise Function</h4>
+          <pre><code>
+- (void)putDownPen:(Arm *)arm
+{
+
+}
+          </code></pre>
+          <aside class="notes">
+            Have them implement this on their own, and play Harry Potter theme in the background
+          </aside>
+        </section>
+        <section>
+          <h4>A Solution</h4>
+          <pre class="fragment"><code>
+- (void)putDownPen:(Arm *)arm
+{
+    [arm extend];
+    [arm.hand open];
+    [arm retract];
+    [arm.hand close];
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2>Break time!</h2>
+        </section>
+        <section>
+          <h4>Implementation</h4>
+          <aside class="notes">
+            Two files per class
+          </aside>
+          <p class="fragment">Header (.h) = how others interact with an instance.</p>
+          <p class="fragment">Implementation (.m) = what happens when they do.</p>
+          <p class="fragment">Recall <code>pickUpPen</code>. In the header:<br>
+          <pre class="fragment"><code>#import &lt;Foundation/Foundation.h&gt;
+
+@interface Arm : NSObject
+- (void)pickUpPen:(Arm *)arm;
+@end</code></pre></p>
+          <p class="fragment">In the implementation:<br>
+          <pre class="fragment"><code>#import "Arm.h"
+
+@implementation Arm
+- (void)pickUpPen:(Arm *)arm {
+    [arm.hand open];
+    [arm extend];
+    [arm.hand close];
+    [arm retract];
+}
+@end</code></pre></p>
+        </section>
+        <section>
+          <h4>Self</h4>
+          <p class="fragment">The "self" keyword refers to the current instance</p>
+          <p class="fragment">Example: rewrite of <code>pickUpPen:</code></p>
+          <pre class="fragment"><code>#import "Arm.h"
+
+@implementation Arm
+- (void)pickUpPen 
+{
+    [self.hand open];
+    [self extend];
+    [self.hand close];
+    [self retract];
+}
+@end</code></pre>
+        </section>
+        <section>
+          <h4>A Short Digression: Memory</h4>
+          <p class="fragment">Instances are stored in memory (RAM)</p>
+          <aside class="notes">
+            RAM = random access memory. Means there's no plan for where something will be. (This is slightly more complicated than what I'm describing)
+          </aside>
+          <p class="fragment">Each instance has an address in memory</p>
+          <p class="fragment">That address is how the computer refers to the object</p>
+        </section>
+        <section>
+          <h4>The Dentist Example</h4>
+          <aside class="notes">
+            I am an instance of the class person. I have a dentist. Sometimes, that dentist will change.
+          </aside>
+          <p class="fragment">I have a contact in my phone called 'Dentist'</p>
+          <p class="fragment">Move to a new city, need a new dentist</p>
+          <p class="fragment">Find a new one and replace the old dentist's phone number with the new one</p>
+          <pre class="fragment"><code>- (void)setDentist:(Dentist *)newDentist
+{
+    self.dentist = newDentist;
+}</code></pre>
+          <aside class="notes">
+            This is how equals works - I'm replacing the address I have in self.dentist by the address stored in newDentist
+          </aside>
+        </section>
+        <section>
+          <h4>Variables</h4>
+          <p class="fragment">Create a variable like so:</p>
+          <pre class="fragment"><code>    Dentist *myDentist;</code></pre>
+          <aside class="notes">
+            right now, nothing in it. empty bucket. no object in it... kind of
+          </aside>
+          <p class="fragment">Right now, <code>dentist</code> is equal to <code>nil</code></p>
+          <aside class="notes">
+            nil is the nothing object. lot of neat properties, but specifically, if you try to call a function it won't do anything, or it will return nil
+          </aside>
+          <p class="fragment">Usually we'll <i>instantiate</i> the object at the same time as we create the variable:</p>
+          <pre class="fragment"><code>    Dentist *myDentist = [[Dentist alloc] init];</code></pre>
+          <aside class="notes">
+            lot to unpack here. Should recognize left side. Should recognize brackets. Alloc = allocate memory. Init = initialize
+            also note, variables and functions start with lowercase. classes = uppercase
+          </aside>
+          <p class="fragment">PM me on Slack with how to create a variable of class <code>Arm</code> named <code>someonesArm</code></p>
+          <pre class="fragment"><code>    Arm *someonesArm = [[Arm alloc] init];</code></pre>
+        </section>
+        <section>
+          <h4>Person</h4>
+          <aside class="notes">
+            Have them create this class
+          </aside>
+        </section>
+        <section>
+          <h4>Scope</h4>
+          <p>Variables have a shelf life</p>
+          <aside class="notes">
+            scope is basically how long it will last. if variables are buckets to hold things, you only have so much room in your house. at some point, you'll have to get rid of some. that's scope, more or less: rules that determine how long a variable is valid for.
+          </aside>
+          <p class="fragment">Scope of a variable is where it is valid</p>
+          <pre class="fragment"><code>- (void)setDentist:(Dentist *)newDentist
+{
+    self.dentist = newDentist;
+}</code></pre>
+          <aside class="notes">
+            What happens when dentist office has no patients: if closes. Same thing with variables: when no one is using it, get rid of it. Variable 'newDentist' is the paper on which the phone number is stored on. Once it's copied into self.dentist, don't need newDentist any more. Scope: can only use newDentist in that one function. (Explain where this is happening? That is, the implementation file?)
+          </aside>
+
+          <pre class="fragment"><code>- (void)makeAppointmentWithDentist
+{
+    DentistAppointment *appointment = [[DentistAppointment alloc] init];
+    appointment.dentist = self.dentist;
+    appointment.patient = self;
+    [appointment confirm];
+}</code></pre>
+          <p class="fragment">Rule of thumb: only valid between the curly braces in which it was born</p>
+        </section>
+        <section>
+          <h4>Primatives</h4>
+          <aside class="notes">
+            keep saying 'almost' everything is an object. primatives are not object. so small, they don't need pointers.
+          </aside>
+          <p class="fragment"><code>int</code> - integers</p>
+          <p class="fragment"><code>BOOL</code> - boolean values (<code>YES</code> and <code>NO</code>)</p>
+          <p class="fragment"><code>float</code> - decimal numbers</p>
+          <p class="fragment">Don't need * because not an address</p>
+          <p class="fragment">Math operations work as you'd expect:</p>
+          <pre class="fragment"><code>    int myLuckyNumber = 5 + 4;
+    myLuckyNumber = 86 - 77;
+    myLuckyNumber = 3 * 3;
+    myLuckyNumber = 81 / 9;
+    myLuckyNumber = 103 % 47;</code></pre>
+        </section>
+        <section>
+          <h4>Exercise</h4>
+          <p>Let's write a function that adds two integers together and returns the result.</p>
+          <pre class="fragment"><code>- (int)add:(int)firstNumber to:(int)secondNumber
+{
+    return firstNumber + secondNumber;
+}</code></pre>
+          <aside class="notes">
+            create a Utility class in which to implement this. Then do so.
+          </aside>
+          <p class="fragment">Now you: write a function that subtracts one int from another and returns the result.</p>
+        </section>
+        <section>
+          <h4>Booleans</h4>
+          <p>Recall that <code>BOOL</code> is a boolean value (either <code>YES</code> and <code>NO</code>)</p>
+          <aside class="notes">
+            introduce a few things at once. if/then, and boolean operations
+          </aside>
+          <pre class="fragment"><code>    int myLuckyNumber = 9;
+    if (myLuckyNumber == 7){
+        //do something only if myLuckyNumber is 7
+    }</code></pre>
+          <pre class="fragment"><code>    int myLuckyNumber = 9;
+    if (myLuckyNumber != 7){
+        //do something only if myLuckyNumber is NOT 7
+    }</code></pre>
+        </section>
+        <section>
+          <h4>Subclassing</h4>
+          <p class="fragment">Add functionality to a class by subclassing it (extending it)</p>
+          <p class="fragment">It 'inherits' all the functions of its super class</p>
+          <p class="fragment">Plus you can add your own functions</p>
+          <p class="fragment">Suppose I have a class called <code>Automobile</code></p>
+          <p class="fragment"><code>Automobile</code> has wheels, a driver's seat, can brake, can accelerate...</p>
+          <pre class="fragment"><code>#import "Automobile.h"
+
+@interface Truck : Automobile
+@property (nonatomic, strong) FlatBed *flatBed;
+
+- (void)haul:(NSObject *)something;
+@end</code></pre>
+          <aside class="notes">
+            this is actually what we've been doing all along: all classes so far have subclassed NSObject.
+          </aside>
+        </section>
+        <section>
+          <h1>Break time!</h1>
+          <iframe width="420" height="315" src="https://www.youtube.com/embed/zCNHVMIYqiA" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section>
+          <h4>Real Live App</h4>
+          <p>https://github.com/schrockblock/boston-ios</p>
+          <p>Download zip, extract it</p>
+          <p>Run <code>pod install</code></p>
+          <p>Open the workspace</p>
+          <aside class="notes">
+            this is app is not my best work, but it'll do. run it, show that what it does. open finder and show all the files. this is why we need mvc. explain mvc.
+          </aside>
+        </section>
+        <section>
+          <h4>Homework</h4>
+          <p>https://github.com/schrockblock/gdi-homework-1</p>
+          <p>I accidentally deleted a class! Use Xcode to figure out which one, and re-create it so that the project runs.</p>
         </section>
         <section>
           <h1>Thank you!</h1>
