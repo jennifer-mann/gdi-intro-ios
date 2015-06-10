@@ -581,8 +581,178 @@ someObject.someProperty = anotherProperty;</code></pre>
         <!-- ************ -->
 
         <section id="class-2">
-          <h2>Second Class: Vineet</h2>
+          <h2>Introduction to iOS App Development</h2>
+            <h4>Second Class</h4>
+            <p>Vineet Sathyan</em></p>
+            <p class="fragment">My email: vineet.sathyan@gmail.com </p>
+
+            <aside class="notes">
+              Brief introduction + reminder to please continue to ask questions. Last class we did great.
+            </aside>
+
         </section>
+
+        <section>
+          <h4>Agenda</h4>
+            <p class="fragment">Introduction to MVC</p>
+            <p class="fragment">Basic Tour of Xcode</p>
+            <p class="fragment">Basic User Interface</p>
+            <p class="fragment">Programming Basics cont.</p>
+            <aside class="notes">
+              Switching to UI to get a breather from pure coding and then we will come back to it :).
+            </aside>
+        </section>
+
+        <section>
+          <h4>Model</h4>
+            <p class="fragment">objects that store data</p>
+            <aside class="notes">
+              stores the current 'state' of the application
+            </aside>
+            <p class="fragment">Database : CoreData, sqlite, etc.</p>
+            <p class="fragment">NSObjects</p>
+            <aside class="notes">
+              What we implemented- ask a question after MVC is introduced.
+            </aside>
+
+        </section>
+        <section>
+          <h4>View</h4>
+          <p class="fragment">User Interface : what the user sees</p>
+            <p class="fragment">views, buttons, labels</p>
+            <aside class="notes">
+              What we implemented- ask a question after MVC is introduced.
+            </aside>
+        </section>
+        <section>
+          <h4>Controller</h4>
+          <p class="fragment">'controls' views and models</p>
+          <p class="fragment">UIViewController</p>
+          <p class="fragment">UITableViewController, UINavigationController, custom</p>
+            <aside class="notes">
+              acts as the intermediary between models and views. models and views should never be aware of each other.
+            </aside>
+        </section>
+
+        <section>
+          <h4>Xcode</h4>
+          <p class="fragment">IDE</p>
+          <p class="fragment">Menu Items</p>
+          <p class="fragment">Quick Help</p>
+          <p class="fragment">Interface Builder</p>
+          <aside class="notes">
+            Don't want to overwhelm, just pointing out a few helpful things for right now. And we will learn more as we go.
+          </aside>
+        </section>
+
+        <section>
+          <h4>Interface Builder</h4>
+          <aside class="notes">
+            allows you to design a user-interface without writing any code. 
+          </aside>
+          <p class="fragment">Live Example</p>
+          <p class="fragment">Lots of 'drag and drop'</p>
+          <aside class="notes">
+            make a new project, add a label, connect the label to a IBOutlet, then output custom text to that label.
+            Add a button, conect it to IBAction, change the text of that label. 
+          </aside>
+          <aside class="notes">
+            What is the M, V, C?
+          </aside>
+        </section>
+
+        <section>
+          <h4>UIViews</h4>
+          <p class="fragment">UIView</p>
+          <aside class="notes">
+            basic canvas of the view hierarchy.
+            holds subviews- any sort of views: UIViews, label, buttons, images, etc. 
+            Handles interactions and layout of all its subviews
+            </aside>
+          <p class="fragment">UILabel</p>
+          <p class="fragment">UIButton</p>
+          <p class="fragment">UIImageView</p>
+          <aside class="notes">
+            add an image to the project, add a UIImageView, load the UIImageView with the image resource object.
+            </aside>
+        </section>
+
+        <section>
+          <h4>Calculator</h4>
+          <p class="fragment">Make a simple calculator</p>
+          <aside class="notes">
+            make all the buttons for a simple integer calculator and connect them to the controller
+            + - , 0-9, = , output Label
+            </aside>
+          <p class="fragment">Optional Homework- extend the calculator.</p>
+            <aside class="notes">
+           to implement multiplying, dividing, decimal points, "stack" of operations
+           </aside>
+
+            <aside class="notes">Break? </aside>
+        </section>
+        
+        <section>
+          <h4>Programming Basics cont.</h4>
+          <p class="fragment">Previously</p>
+          <aside class="notes">
+            went over objects, Class, instance, properties, variables, primitives, functions, scope, alloc, init.
+            </aside>
+        </section>
+
+        <section>
+          <h4>Today</h4>
+            <p class="fragment">arrays</p>
+            <p class="fragment">dictionaries</p>
+            <p class="fragment">constants</p>
+            <p class="fragment">loops</p>
+        </section>
+
+        <section>
+          <h4>NSArray</h4>
+            <p class="fragment">Inherits from NSObject</p>
+            <p class="fragment">array = [1,2,3,4,5]</p>
+            <p class="fragment">ordered collection of objects</p>
+            <p class="fragment">Mutable?</p>
+            <aside class="notes">
+            list of items in order.
+            </aside>
+        </section>
+
+        <section>
+          <h4>NSDictionary</h4>
+            <p class="fragment">Inherits from NSObject</p>
+            <p class="fragment">array = { name : Arya, pet : Nymeria, sword: Needle }</p>
+            <p class="fragment">keys and values</p>
+            <p class="fragment">Mutable</p>
+            <aside class="notes">
+            objects associated with keys, very common in API's passing information back and forth. 
+            </aside>
+        </section>
+
+        <section>
+          <h4>Constants</h4>
+            <p class="fragment">Primitives</p>
+            <p class="fragment">NSString</p>
+            <aside class="notes">
+            useful to declare constants which will never change in the application (name, Text, number, etc). 
+            </aside>
+        </section>
+
+        <section>
+          <h4>Loops</h4>
+            <p class="fragment">For-loop</p>
+            <p class="fragment">While - loop</p>
+            <aside class="notes">
+            for now just focusing on those. Helps perform action, functions on a collection of objects.
+             Be careful to avoid infinite loops. 
+            </aside>
+        </section>
+
+        <section>
+          <h4>Homework</h4>
+        </section>
+
 
         <!-- ************ -->
         <!-- Third Class  -->
