@@ -764,9 +764,9 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section id="class-3">
           <h2>Third Class</h2>
           <p>Jeff O'Leary</p>
-        </section>
-        <section>
+        </section> <section>
           <h4>Agenda</h4>
+          <p class="fragment">Quick refresher</p>
           <p class="fragment">Navigation</p>
           <p class="fragment">Break time!</p>
           <p class="fragment">Auto Layout</p>
@@ -779,6 +779,9 @@ someObject.someProperty = anotherProperty;</code></pre>
           <p class="fragment">What is Auto Layout</p>
           <p class="fragment">What is the benefit of Auto Layout</p>
           <p class="fragment">How do I use Auto Layout</p>
+            <aside class="notes">
+                The goal of this class is by the end of the night, you will understand...
+            </aside>
         </section>
           <section>
           <h4>Goals</h4>
@@ -786,12 +789,30 @@ someObject.someProperty = anotherProperty;</code></pre>
           <br/>
           <p class="fragment">Any follow up questions or clarification, feel to use the anonymous email provided - gdi.ios.anonymous.question@gmail.com<br/>@GDI.Question!</p>
           <br/>
-          <p class="fragment">or email me directly: joleary1987@gmail.com</p>
+          <p class="fragment">my email - joleary1987@gmail.com</p>
         </section>
+          <section>
+              <p>Xcode has tons of panels and toolbars </p>
+              <p class="fragment">Here is a great cheat sheet reference that provides a thorough tour of Xcode in just a few slides</p>
+              <a href="http://bit.ly/1BcjmI5" class="fragment">http://bit.ly/1BcjmI5</a>
+              <p class="fragment">(will put it in Slack chat as well)</p>
+          </section>
+          <section>
+          <h2>What we've already covered</h2>
+              <p class="fragment">Objects</p>
+              <p class="fragment">Class vs. Instance</p>
+              <p class="fragment">Properties vs. Functions</p>
+              <p class="fragment">Subclasses</p>
+              <aside class="notes">
+                  We'll be going over these core concepts and how they apply to what we'll be learning tonight.
+                  Class is like a "type" of something, the instance is an object of that Class or "type".  Properties are something an instance HAS while functions are something an instance DOES.  Subclasses for example, UILabel is a subclass of UIView.  A subclass inherits everything from its parent class and more can be added to it.
+              </aside>
+          </section>
         <section>
           <h2>Navigation</h2>
             <p class="fragment">Navigation Interface</p>
             <p class="fragment">UINavigationController</p>
+            <p class="fragment">StoryBoard Segues</p>
             <p class="fragment">UITabBarController</p>
         </section>
           <section>
@@ -802,7 +823,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           </section>
         <section>
           <p class="fragment">The views of a navigation interface</p>
-          <img class="fragment" src = "images/NavigationViews_2x.png" style="width: 100%; height:100%;">
+          <img class="fragment" src="images/NavigationViews_2x.png" style="width: 100%; height:100%;">
             <aside class="notes">
                 UIWindow class (window in the image) provides an area for displaying an app's views and to distribute events to the views.
                 Usually, an app has only one window and the window contains a root view controller which is the first view controller in the navigation stack.
@@ -820,7 +841,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           </section>
           <section>
               <p>UINavigationController</p>
-              <img class="fragment" src = "images/nav_controllers_objects.jpg" style="width: 100%; height:100%;">
+              <img class="fragment" src="images/nav_controllers_objects.jpg" style="width: 100%; height:100%;">
               <aside class="notes">
                   UINavigationController creates and is responsible for the navigation bar and tool bar.  The navigation controller sets itself as the navigation bar's delegate so it can receive messages such as, "back button touched."
                   The navigation controller manages the navigation stack, which is a "last-in, first-out" collection of custom view controller objects.  The first item added to the stack becomes the <i>root view controller</i> which never gets 'popped' off the stack.
@@ -831,28 +852,33 @@ someObject.someProperty = anotherProperty;</code></pre>
           </section>
           <section>
               <p>Creating a navigation interface in code:</p>
-                <pre class="fragment"><code>
+                <pre class="fragment" style="width :1100px"><code>
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
     UIViewController *myViewController = [[MyViewController alloc] init];
-    navigationController = [[UINavigationController alloc] initWithRootViewController:myViewController];
-    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    window.rootViewController = navigationController;
-    [window makeKeyAndVisible];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:myViewController];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
 }
 
                 </code></pre>
+              <aside class="notes">
+                First line, we allocate and initialize our main view controller.  Then, we set the main view controller as the root view controller (the very first viewcontroller in the navigation stack) while we allocate and initialize our UINavigationController.
+                Next, we take our app's UIWindow, which is provided to us by Xcode when we create our app and set the root view controller as the navigation controller.  Doing this allows the navigation controller access to the window's navigation stack.  Think of the outline of your screen as the window.
+                The UIWindow class defines an object known as a window that manages and coordinates the views an app displays on a device screen. Unless an app can display content on an external device screen, an app has only one window.
+                "makeKeyAndVisible" - This is a convenience method to make the receiver the main window and displays it in front of other windows at the same window level or lower. You can also hide and reveal a window using the inherited hidden property of UIView.
+              </aside>
           </section>
           <section>
               <p class="fragment">User selects an item from a list and expects a detailed view of that item</p>
-              <pre class="fragment"><code>
+              <pre class="fragment" style="width :1100px"><code>
 UIViewController *itemDetailViewController = [UIViewController alloc] init];
 [self.navigationController pushViewController:itemDetailViewController animated:YES];
               </code></pre>
               <br/>
               <p class="fragment">User wants to return to the previous screen</p>
               <p class="fragment"><i>(If the user used the back button, the navigation controller would do that for us)</i></p>
-              <pre class="fragment"><code>
+              <pre class="fragment" style="width :1100px"><code>
 [self.navigationController popViewControllerAnimated:YES];
               </code></pre>
           </section>
@@ -863,7 +889,7 @@ UIViewController *itemDetailViewController = [UIViewController alloc] init];
 [self.navigationController popToRootViewControllerAnimated:YES];
               </code></pre>
               <p class="fragment">Remove a number of view controllers at a time</p>
-              <pre class="fragment"><code>
+              <pre class="fragment" style="width :1200px"><code>
 [self.navigationController popToViewController:viewControllerPositioned4thIntheStack animated:YES];
               </code></pre>
               <aside class="notes">
@@ -875,7 +901,7 @@ UIViewController *itemDetailViewController = [UIViewController alloc] init];
           <section>
               <p>Using UIViewController methods to display new screens</p>
               <p class="fragment">Display a new view controller over the current view controller's content</p>
-              <pre class="fragment"><code>
+              <pre class="fragment" style="width :1100px"><code>
 [self presentViewController:viewControllerToDisplay animated:YES completion:nil];
               </code></pre>
               <p class="fragment">Then dismiss it</p>
@@ -884,17 +910,67 @@ UIViewController *itemDetailViewController = [UIViewController alloc] init];
               </code></pre>
           </section>
         <section>
-          <p>Let's try some out some use cases</p>
-          <ul class="fragment">
-          </ul>
+            <br/>
+            <br/>
+            <br/>
+            <h2>StoryBoard Segues</h2>
+        </section>
+        <section>
+            <p>StoryBoard Segues</p>
+            <p class="fragment">The simplest way to create and facilitate navigation throughout an iOS app</p>
+            <p class="fragment">All in one place!  No code needed!  Wow!</p>
+            <aside class="notes">
+                Storyboards allow adding a button to one view controller within the storyboard and control-select-dragging from that button to another view controller within the same storyboard.  This connects the two view controllers through a segue.  There are different options as to how the next view controller is displayed.
+            </aside>
+        </section>
+        <section>
+            <p>How to add segues in the StoryBoard</p>
+            <p class="fragment">Our pal "control+select+drag" is back and ready to make it happen!</p>
+            <img class="fragment" src = "images/interface_builder_adding_segue_2x.png" style="width: 100%; height:100%;">
+            <aside class="notes">
+                We have seen the control+select+drag action before to create our Interface Builder outlets for our buttons, labels and other subclasses of UIView.  We can also use the control+select+drag to make segue connections between UIViewControllers within the same StoryBoard.
+            </aside>
+        </section>
+        <section>
+             <img class="fragment" src = "images/StoryboardSegues.png" style="width: 100%; height:100%;">
+        </section>
+          <section>
+              <p>Types of Segues</p>
+              <p class="fragment">Show</p>
+              <p class="fragment">Show Detail</p>
+              <p class="fragment">Present Modally</p>
+              <p class="fragment">Popover Presentation</p>
+              <p class="fragment">Custom</p>
+              <aside  class="notes">
+                  Show - Pushes the destination view controller onto the navigation stack, moving the source view controller out of the way (destination slides overtop from right to left), providing a back button to navigate back to the source - on all devices
+                  Example: Navigating inboxes/folders in Mail
+
+                  Show Detail - Replaces the detail/secondary view controller when in a UISplitViewController with no ability to navigate back to the previous view controller
+                  Example: In Mail on iPad in landscape, tapping an email in the sidebar replaces the view controller on the right to show the new email
+
+                  Present Modally - Presents a view controller in various different ways as defined by the Presentation option, covering up the previous view controller - most commonly used to present a view controller that animates up from the bottom and covers the entire screen on iPhone, but on iPad it's common to present it as a centered box overtop that darkens the underlying view controller and also animates up from the bottom
+                  Example: Tapping the + button in Calendar on iPhone
+
+                  Popover Presentation - When run on iPad, the destination appears in a small popover, and tapping anywhere outside of this popover will dismiss it. On iPhone, popovers are supported as well but by default if it performs a Popover Presentation segue, it will present the destination view controller modally over the full screen.
+                  Example: Tapping the + button in Calendar on iPad (or iPhone, realizing it is converted to a full screen presentation as opposed to an actual popover)
+
+                  Custom - You may implement your own custom segue and have control over its behavior.
+              </aside>
+          </section>
+        <section>
+             <p>Let's take a look at an example</p>
+             <a href="https://github.com/joleary1987/autolayout-example">https://github.com/joleary1987/autolayout-example</a>
+             <aside class="notes">
+                 Open autolayout-sample Xcode project and show how to add another UIViewController, add a button to a previous UIViewController and how to connect them via Segue outlet (control+select+drag)
+             </aside>
         </section>
           <section>
               <br/>
               <br/>
               <br/>
               <h2>UITabBarController</h2>
-          </section>
-          <section>
+        </section>
+        <section>
               <p class="fragment">Display a new view controller over the current view controller's content</p>
               <img class="fragment" src = "images/tabbar_controllerviews.jpg" style="width: 100%; height:100%;">
               <aside class="notes">
@@ -904,18 +980,27 @@ UIViewController *itemDetailViewController = [UIViewController alloc] init];
                   Tab bar items are configured through their corresponding view controller. To associate a tab bar item with a view controller, create a new instance of the UITabBarItem class, configure it appropriately for the view controller, and assign it to the view controller’s tabBarItem property. If you do not provide a custom tab bar item for your view controller, the view controller creates a default item containing no image and the text from the view controller’s title property.
                   If you assign a value to this view controller’s restorationIdentifier property, it preserves a reference to the view controller in the selected tab. At restore time, it uses the reference to select the tab with the same view controller.
               </aside>
-          </section>
-          <section>
-              <p>Creating and setting the view controllers for each tab</p>
-              <pre class="fragment"><code width=3000>
+        </section>
+        <section>
+              <p>Creating and setting the view controllers for each tab in code</p>
+              <pre class="fragment"><code style="width :900px">
 UIViewController *firstTabViewController = [[UIViewController alloc] init];
 UIViewController *secondTabViewController = [[UIViewController alloc] init];
 UIViewController *thirdTabViewController = [[UIViewController alloc] init];
 UIViewController *fourthTabViewController = [[UIViewController alloc] init];
 
 UITabBarController *tabBarController = [[UITabBarController alloc] init];
-tabBarController.viewControllers = @[firstTabViewController, secondTabViewController, thirdTabViewController, fourthTabViewController];
+tabBarController.viewControllers = @[firstTabViewController,  <br/>secondTabViewController, thirdTabViewController, fourthTabViewController];
               </code></pre>
+            <aside class="notes">
+                Here, we are allocating and initializing (4) UIViewControllers and (1) UITabBarController.  viewControllers is a property of type NSArray on the UITabBarController class.  We can use the following syntax to declare an array full of our view controllers.
+            </aside>
+          </section>
+          <section>
+              <p>Creating and using UITabBarControllers in Interface Builder</p>
+              <aside class="notes">
+                  Move to Xcode and open the autolayout-sample project.  Add a UITabBarController to main.Storyboard, add button to initial view controller to move to UITabBarController and add labels to item 1 and item 2 view controllers.
+              </aside>
           </section>
           <section>
               <p>Tab bars have very limited space on the screen...</p>
@@ -934,31 +1019,64 @@ tabBarController.viewControllers = @[firstTabViewController, secondTabViewContro
           </section>
           <section>
               <p>What is it?</p>
-              <p class="fragment">A system to create mathematical relationships between items within the view, with view itself.  It is very similar to responsive web</p>
+              <p class="fragment">A system to create mathematical relationships between items within the view (or "subviews") and items in relation to the parent view itself.  It is similar to responsive web</p>
           </section>
           <section>
               <p>How does it help me?</p>
-              <p class="fragment">Items within the view resize and reposition based on our predetermined constraints.  Auto Layout removes the need to code for every current and future screen size.</p>
+              <p class="fragment">Items within the view reposition and/or resize based on our predetermined constraints.  Auto Layout removes the need to code for every current and future screen size.</p>
           </section>
           <section>
               <p>Adding layout constraints using Interface Builder</p>
-              <p class="fragment">Control-Drag</p>
+              <aside class="fragment">Select the view you want to add constraints to<br/>
+                  + hold down Control key<br/>
+                  + hold down when you select the view with your mouse<br/>
+                  + drag your mouse over to another view or parent view
+              </p>
                   <img class="fragment" src = "images/xibautolayoutimage.png" style="width: 100%; height:100%;">
               <aside class="notes">
                   View constraints include height, width, leading space, trailing space, top space and bottom space.  These constraints can be applied to single items, multiple items either.  Constraints can be in reference to other child views or the superview itself.
+                  Auto Layout also includes Horizontal Center and Vertical Center in the item's container.  Multiple items can be selected and have equal widths or heights applied to all so each item's width or height is the same.
               </aside>
           </section>
           <section>
-              <p>Adding layout constraints using Interface Builder continued...</p>
-              <img class="fragment" src = "images/otheroptionsxib.png" style="width: 100%; height:100%;">
+              <p>Leading, trailing, top and bottom constraints</p>
+              <img class="fragment" src = "images/leadingtrailingtopbottom.png" style="width: 100%; height:100%;">
+          </section>
+          <section>
+              <p>Equal heights and widths constraints </p>
+              <img class="fragment" src = "images/4samesizebuttons.png" style="width: 50%; height:50%;">
+          </section>
+          <section>
+              <p>Center horizontally and vertically</p>
+              <img class="fragment" src = "images/centeredbutton.png" style="width: 50%; height:50%;">
+          </section>
+          <section>
+              <p>Example</p>
+              <img class="fragment" src = "images/xibsimulators.jpg" style="width: 100%; height:100%;">
               <aside class="notes">
-                  Auto Layout also includes Horizontal Center and Vertical Center in the item's container.  Multiple items can be selected and have equal widths or heights applied to all so each item's width or height is the same.
+                  In this example, the button's height and width constraints are set.  The leading and top constraints are set to 20 points.  This will cause the button to always be position at the top left of the screen, regardless of device size and device orientation (landscape, portrait).
               </aside>
           </section>
           <section>
               <p>Referencing constraints that were set in Interface Builder in code</p>
               <p class="fragment">While in Assistant Editor mode, having the XIB file and class file open</p>
+              <p class="fragment">Control + Select + Drag over to the other file being shown and add the outlet under <font color="#ff1493">@interface</font></p>
               <img class="fragment" src = "images/fullscreenxibandclassfile.png" style="width: 100%; height:100%;">
+          </section>
+          <section>
+              <p>Where to access constraints, Interface Builder UIView subclasses (buttons, labels, textfields, etc), and class attribute details</p>
+              <img class="fragment" src = "images/fullsize_xcode.jpg" style="width: 100%; height:100%;">
+          </section>
+          <aside class="notes">
+              The rule relates to the measurements
+          </aside>
+          <section>
+              <p>Exercise</p>
+              <p class="fragment">Our app needs a UILabel with a fixed height of 40 points and a fixed width of 100 points.  This label holds important text so we want it to be pinned to the top of the screen and centered horizontally.</p>
+              <p class="fragment">We also need a button centered vertically on screen that has a variable width.  Preferably, the button will have 20 points of padding on both sides.</p>
+          </section>
+          <section>
+              <h2>THANK YOU!</h2>
           </section>
         <!-- ************ -->
         <!-- Final Class  -->
