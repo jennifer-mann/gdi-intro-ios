@@ -228,9 +228,9 @@ someObject.someProperty = anotherProperty;</code></pre>
 {
     myPen = thisPen;
 }</code></pre>
-          <pre class="fragment"><code>- (void)putInkCartridge:(InkCartridge *)cartridge intoPen:(Pen *)pen
+          <pre class="fragment"><code>- (void)putInkCartridge:(InkCartridge *)myCartridge intoPen:(Pen *)myPen
 {
-    pen.cartridge = cartridge;
+    myPen.cartridge = myCartridge;
 }</code></pre>
           <p class="fragment">Functions can 'return' things:</p>
           <pre class="fragment"><code>- (Pen *)giveMeYourPen<br>{<br>    return myPen;<br>}</code></pre>
@@ -245,12 +245,12 @@ someObject.someProperty = anotherProperty;</code></pre>
         </section>
         <section>
           <h4>Putting it all together</h4>
-          <pre class="fragment"><font color="white">-</font> <font color="green">(Pen *)</font><font color="yellow">pen:</font><font color="red">(Pen *)pen</font> <font color="yellow">withInkCatridge:</font><font color="red">(InkCartridge *)cartridge</font></pre>
+          <pre class="fragment"><font color="white">-</font> <font color="green">(Pen *)</font><font color="yellow">pen:</font><font color="red">(Pen *)myPen</font> <font color="yellow">withInkCatridge:</font><font color="red">(InkCartridge *)myCartridge</font></pre>
           <pre class="fragment">{
-    [<font color="red">pen</font> <font color="blue">open</font>];
-    <font color="red">pen</font>.<font color="pink">inkCartridge</font> = <font color="red">cartridge</font>;
-    [<font color="red">pen</font> <font color="blue">close</font>];
-    return <font color="green">pen</font>;
+    [<font color="red">myPen</font> <font color="blue">open</font>];
+    <font color="red">myPen</font>.<font color="pink">inkCartridge</font> = <font color="red">myCartridge</font>;
+    [<font color="red">myPen</font> <font color="blue">close</font>];
+    return <font color="green">myPen</font>;
 }</pre>
         </section>
         <section>
@@ -285,7 +285,7 @@ someObject.someProperty = anotherProperty;</code></pre>
 #import "Hand.h"
 
 @interface Arm : NSObject
-@property (nonatomic, strong) Hand *hand;
+@property (nonatomic, strong) Hand *myHand;
 
 - (void)extend;
 - (void)retract;
@@ -304,7 +304,7 @@ someObject.someProperty = anotherProperty;</code></pre>
 #import "Hand.h"
 
 @interface Arm : NSObject
-@property (nonatomic, strong) Hand *hand;
+@property (nonatomic, strong) Hand *myHand;
 
 - (void)extend;
 - (void)retract;
@@ -328,7 +328,7 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section>
           <h4>Exercise Function</h4>
           <pre><code>
-- (void)pickUpPen:(Arm *)arm
+- (void)pickUpPen:(Arm *)anArm
 {
 
 }
@@ -340,19 +340,19 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section>
           <h4>A Solution</h4>
           <pre class="fragment"><code>
-- (void)pickUpPen:(Arm *)arm
+- (void)pickUpPen:(Arm *)anArm
 {
-    [arm.hand open];
-    [arm extend];
-    [arm.hand close];
-    [arm retract];
+    [anArm.hand open];
+    [anArm extend];
+    [anArm.hand close];
+    [anArm retract];
 }
           </code></pre>
         </section>
         <section>
           <h4>Exercise Function</h4>
           <pre><code>
-- (void)putDownPen:(Arm *)arm
+- (void)putDownPen:(Arm *)anArm
 {
 
 }
@@ -364,12 +364,12 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section>
           <h4>A Solution</h4>
           <pre class="fragment"><code>
-- (void)putDownPen:(Arm *)arm
+- (void)putDownPen:(Arm *)anArm
 {
-    [arm extend];
-    [arm.hand open];
-    [arm retract];
-    [arm.hand close];
+    [anArm extend];
+    [anArm.hand open];
+    [anArm retract];
+    [anArm.hand close];
 }
           </code></pre>
         </section>
@@ -387,17 +387,17 @@ someObject.someProperty = anotherProperty;</code></pre>
           <pre class="fragment"><code>#import &lt;Foundation/Foundation.h&gt;
 
 @interface Arm : NSObject
-- (void)pickUpPen:(Arm *)arm;
+- (void)pickUpPen:(Arm *)anArm;
 @end</code></pre></p>
           <p class="fragment">In the implementation:<br>
           <pre class="fragment"><code>#import "Arm.h"
 
 @implementation Arm
-- (void)pickUpPen:(Arm *)arm {
-    [arm.hand open];
-    [arm extend];
-    [arm.hand close];
-    [arm retract];
+- (void)pickUpPen:(Arm *)anArm {
+    [anArm.hand open];
+    [anArm extend];
+    [anArm.hand close];
+    [anArm retract];
 }
 @end</code></pre></p>
         </section>
@@ -436,7 +436,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           <p class="fragment">Find a new one and replace the old dentist's phone number with the new one</p>
           <pre class="fragment"><code>- (void)setDentist:(Dentist *)newDentist
 {
-    self.dentist = newDentist;
+    self.myDentist = newDentist;
 }</code></pre>
           <aside class="notes">
             This is how equals works - I'm replacing the address I have in self.dentist by the address stored in newDentist
@@ -465,7 +465,7 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section>
           <h4>Person</h4>
           <aside class="notes">
-            Have them create this class
+            Have them create this class. Should have an NSString *name (so explain some of those NS classes), and maybe an arm?, phone #?
           </aside>
         </section>
         <section>
@@ -477,7 +477,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           <p class="fragment">Scope of a variable is where it is valid</p>
           <pre class="fragment"><code>- (void)setDentist:(Dentist *)newDentist
 {
-    self.dentist = newDentist;
+    self.myDentist = newDentist;
 }</code></pre>
           <aside class="notes">
             What happens when dentist office has no patients: if closes. Same thing with variables: when no one is using it, get rid of it. Variable 'newDentist' is the paper on which the phone number is stored on. Once it's copied into self.dentist, don't need newDentist any more. Scope: can only use newDentist in that one function. (Explain where this is happening? That is, the implementation file?)
@@ -486,7 +486,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           <pre class="fragment"><code>- (void)makeAppointmentWithDentist
 {
     DentistAppointment *appointment = [[DentistAppointment alloc] init];
-    appointment.dentist = self.dentist;
+    appointment.dentist = self.myDentist;
     appointment.patient = self;
     [appointment confirm];
 }</code></pre>
@@ -545,7 +545,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           <pre class="fragment"><code>#import "Automobile.h"
 
 @interface Truck : Automobile
-@property (nonatomic, strong) FlatBed *flatBed;
+@property (nonatomic, strong) FlatBed *theFlatBed;
 
 - (void)haul:(NSObject *)something;
 @end</code></pre>
