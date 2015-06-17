@@ -1085,7 +1085,89 @@ tabBarController.viewControllers = @[firstTabViewController,  <br/>secondTabView
         <section id="class-4">
           <h2>Final Class: TBD</h2>
         </section>
+              <!-- Jeff's Slides for 3rd class review -->
+      <section>
+        <h2>Navigation</h2>
+          <p class="fragment">Navigation Interface</p>
+          <p class="fragment">UINavigationController</p>
+          <p class="fragment">StoryBoard Segues</p>
+          <p class="fragment">UITabBarController</p>
+      </section>
+      <section>
+      <p class="fragment">The views of a navigation interface</p>
+        <img class="fragment" src="images/NavigationViews_2x.png" style="width: 100%; height:100%;">
+          <aside class="notes">
+              UIWindow class (window in the image) provides an area for displaying an app's views and to distribute events to the views.
+              Usually, an app has only one window and the window contains a root view controller which is the first view controller in the navigation stack.
+              The navigation view here is the part of the UINavigationController and can send events to the navigation controller.
+              The tab bar view is part of the UITabBarController and can send events to the tab bar controller.
+              ^^All provided by iOS and customizable, however, the positioning of where they are layered should not be altered.
+              Lastly, there are the views you have created and can navigate to/from.
+          </aside>
+      </section>
+      <section>
+            <p>UINavigationController</p>
+            <img class="fragment" src="images/nav_controllers_objects.jpg" style="width: 100%; height:100%;">
+            <aside class="notes">
+                UINavigationController creates and is responsible for the navigation bar and tool bar.  The navigation controller sets itself as the navigation bar's delegate so it can receive messages such as, "back button touched."
+                The navigation controller manages the navigation stack, which is a "last-in, first-out" collection of custom view controller objects.  The first item added to the stack becomes the <i>root view controller</i> which never gets 'popped' off the stack.
+                The navigation controller’s primary responsibility is to respond to user actions by pushing new content view controllers onto the stack or popping content view controllers off of the stack.
+                Each content view controller in the stack configures and pushes the content view controller that is on top of it in the stack.
+                The navigation controller provides a back button on the navigation bar that pops the topmost view controller automatically when the user taps it.
+            </aside>
+      </section>
+      <section>
+          <p>How to add segues in the StoryBoard</p>
+          <p class="fragment">Our pal "control+select+drag" is back and ready to make it happen!</p>
+          <img class="fragment" src = "images/interface_builder_adding_segue_2x.png" style="width: 100%; height:100%;">
+          <aside class="notes">
+              We have seen the control+select+drag action before to create our Interface Builder outlets for our buttons, labels and other subclasses of UIView.  We can also use the control+select+drag to make segue connections between UIViewControllers within the same StoryBoard.
+          </aside>
+      </section>
+      <section>
+           <img class="fragment" src = "images/StoryboardSegues.png" style="width: 100%; height:100%;">
+      </section>
+      <section>
+            <h2>Auto Layout</h2>
+        </section>
+        <section>
+            <p>Adding layout constraints using Interface Builder</p>
+            <aside class="fragment">Select the view you want to add constraints to<br/>
+                + hold down Control key<br/>
+                + hold down when you select the view with your mouse<br/>
+                + drag your mouse over to another view or parent view
+            </p>
+                <img class="fragment" src = "images/xibautolayoutimage.png" style="width: 100%; height:100%;">
+            <aside class="notes">
+                View constraints include height, width, leading space, trailing space, top space and bottom space.  These constraints can be applied to single items, multiple items either.  Constraints can be in reference to other child views or the superview itself.
+                Auto Layout also includes Horizontal Center and Vertical Center in the item's container.  Multiple items can be selected and have equal widths or heights applied to all so each item's width or height is the same.
+            </aside>
+            <section>
+            <p>Leading, trailing, top and bottom constraints</p>
+            <img class="fragment" src = "images/leadingtrailingtopbottom.png" style="width: 100%; height:100%;">
+      </section>
+      <section>
+            <p>Equal heights and widths constraints </p>
+            <img class="fragment" src = "images/4samesizebuttons.png" style="width: 50%; height:50%;">
+      </section>
+        <section>
+            <p>Center horizontally and vertically</p>
+            <img class="fragment" src = "images/centeredbutton.png" style="width: 50%; height:50%;">
+        </section>
+        <section>
+            <p>Where to access constraints, Interface Builder UIView subclasses (buttons, labels, textfields, etc), and class attribute details</p>
+            <img class="fragment" src = "images/fullsize_xcode.jpg" style="width: 100%; height:100%;">
+        </section>
       </div>
+
+
+
+
+
+
+
+
+
 
       <footer>
         <div class="copyright"></div>
