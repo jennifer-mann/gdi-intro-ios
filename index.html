@@ -17,8 +17,8 @@
     <link rel="icon" href="favicon.ico">
 
     <!-- For syntax highlighting -->
-    <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
-    <!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+     <!-- light editor<link rel="stylesheet" href="lib/css/light.css"> -->
+     <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
 
     <!-- If use the PDF print sheet so students can print slides-->
 
@@ -37,7 +37,7 @@
       <div class="slides">
 
         <section>
-          <img src = "images/gdi-boston-logo.png" style="width: 30%; height:30%;">
+          <img src ="images/gdi_logo_badge.png" style="width: 30%; height:30%;">
           <h3>Introduction to iOS</h3>
           <a href="#/install-night">Install Night</a><br>
           <a href="#/class-1">First Class</a><br>
@@ -110,7 +110,6 @@
         <section id="class-1">
             <h2>Introduction to iOS App Development</h2>
             <h4>First Class</h4>
-            <p>Elliot Schrock</em></p>
           </section>
         <section>
           <h4>Agenda</h4>
@@ -125,8 +124,6 @@
             <p class="fragment">1 class = 1 instructor</p>
             <p class="fragment">Misunderstanding = our fault</p>
             <p class="fragment">Please please PLEASE ask questions</p>
-            <p class="fragment">gdi.ios.anonymous.question@gmail.com<br/>@GDI.Question!</p>
-            <p class="fragment">My email: elliot.schrock@gmail.com</p>
             <aside class="notes">
               Let students write it down!
             </aside>
@@ -292,7 +289,7 @@ someObject.someProperty = anotherProperty;</code></pre>
 @end
           </code></pre>
           <aside class="notes">
-            Go through each line and explain: 
+            Go through each line and explain:
             @interface = how to "interface" with Arm objects
             property (incantation, incantation) an object of class Hand, named hand
             two functions that return nothing and take no arguments
@@ -408,7 +405,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           <pre class="fragment"><code>#import "Arm.h"
 
 @implementation Arm
-- (void)pickUpPen 
+- (void)pickUpPen
 {
     [self.hand open];
     [self extend];
@@ -583,8 +580,6 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section id="class-2">
           <h2>Introduction to iOS App Development</h2>
             <h4>Second Class</h4>
-            <p>Vineet Sathyan</em></p>
-            <p class="fragment">My email: vineet.sathyan@gmail.com </p>
 
             <aside class="notes">
               Brief introduction + reminder to please continue to ask questions. Last class we did great.
@@ -648,13 +643,13 @@ someObject.someProperty = anotherProperty;</code></pre>
         <section>
           <h4>Interface Builder</h4>
           <aside class="notes">
-            allows you to design a user-interface without writing any code. 
+            allows you to design a user-interface without writing any code.
           </aside>
           <p class="fragment">Live Example</p>
           <p class="fragment">Lots of 'drag and drop'</p>
           <aside class="notes">
             make a new project, add a label, connect the label to a IBOutlet, then output custom text to that label.
-            Add a button, conect it to IBAction, change the text of that label. 
+            Add a button, conect it to IBAction, change the text of that label.
           </aside>
           <aside class="notes">
             What is the M, V, C?
@@ -666,7 +661,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           <p class="fragment">UIView</p>
           <aside class="notes">
             basic canvas of the view hierarchy.
-            holds subviews- any sort of views: UIViews, label, buttons, images, etc. 
+            holds subviews- any sort of views: UIViews, label, buttons, images, etc.
             Handles interactions and layout of all its subviews
             </aside>
           <p class="fragment">UILabel</p>
@@ -691,7 +686,7 @@ someObject.someProperty = anotherProperty;</code></pre>
 
             <aside class="notes">Break? </aside>
         </section>
-        
+
         <section>
           <h4>Programming Basics cont.</h4>
           <p class="fragment">Previously</p>
@@ -726,7 +721,7 @@ someObject.someProperty = anotherProperty;</code></pre>
             <p class="fragment">keys and values</p>
             <p class="fragment">Mutable</p>
             <aside class="notes">
-            objects associated with keys, very common in API's passing information back and forth. 
+            objects associated with keys, very common in API's passing information back and forth.
             </aside>
         </section>
 
@@ -735,7 +730,7 @@ someObject.someProperty = anotherProperty;</code></pre>
             <p class="fragment">Primitives</p>
             <p class="fragment">NSString</p>
             <aside class="notes">
-            useful to declare constants which will never change in the application (name, Text, number, etc). 
+            useful to declare constants which will never change in the application (name, Text, number, etc).
             </aside>
         </section>
 
@@ -745,7 +740,7 @@ someObject.someProperty = anotherProperty;</code></pre>
             <p class="fragment">While - loop</p>
             <aside class="notes">
             for now just focusing on those. Helps perform action, functions on a collection of objects.
-             Be careful to avoid infinite loops. 
+             Be careful to avoid infinite loops.
             </aside>
         </section>
 
@@ -763,7 +758,6 @@ someObject.someProperty = anotherProperty;</code></pre>
 
         <section id="class-3">
           <h2>Third Class</h2>
-          <p>Jeff O'Leary</p>
         </section> <section>
           <h4>Agenda</h4>
           <p class="fragment">Quick refresher</p>
@@ -772,7 +766,7 @@ someObject.someProperty = anotherProperty;</code></pre>
           <p class="fragment">Auto Layout</p>
         </section>
         <section>
-          <h4>Goals</h4>          
+          <h4>Goals</h4>
           <p class="fragment">What is a navigation stack</p>
           <p class="fragment">Who coordinates and controls navigation</p>
           <p class="fragment">How to navigate throughout an app</p>
@@ -787,9 +781,8 @@ someObject.someProperty = anotherProperty;</code></pre>
           <h4>Goals</h4>
           <p class="fragment">If these goals aren't met, I'm doing something wrong.  Please help me be a better teacher, ask any and all questions!</p>
           <br/>
-          <p class="fragment">Any follow up questions or clarification, feel to use the anonymous email provided - gdi.ios.anonymous.question@gmail.com<br/>@GDI.Question!</p>
+          <p class="fragment">Any follow up questions or clarification, feel to use the anonymous email provided.</p>
           <br/>
-          <p class="fragment">my email - joleary1987@gmail.com</p>
         </section>
           <section>
               <p>Xcode has tons of panels and toolbars </p>
@@ -1093,7 +1086,7 @@ tabBarController.viewControllers = @[firstTabViewController,  <br/>secondTabView
             <p class="fragment">Xcode</p>
             <p class="fragment">Basic User Interface</p>
         </section>
-        
+
         <section>
           <h4>MVC</h4>
             <p class="fragment">What is MVC?</p>
@@ -1255,8 +1248,8 @@ tabBarController.viewControllers = @[firstTabViewController,  <br/>secondTabView
       </footer>
     </div>
 
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.min.js"></script>
+    <script src="reveal/lib/js/head.min.js"></script>
+    <script src="reveal/js/reveal.min.js"></script>
 
     <script>
 
